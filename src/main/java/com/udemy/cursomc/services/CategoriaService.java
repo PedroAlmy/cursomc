@@ -5,40 +5,23 @@ import org.springframework.stereotype.Service;
 
 import com.udemy.cursomc.domain.Categoria;
 import com.udemy.cursomc.repositories.CategoriaRepository;
+import com.udemy.cursomc.services.exception.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
 
 	@Autowired
-	private CategoriaRepository repositorioCategoria;
+	private CategoriaRepository repositorio;
 	
 	public Categoria buscarPeloId(Integer id) {
 		
-		Categoria obj = repositorioCategoria.findOne(id);
+		Categoria obj = repositorio.findOne(id);
+		if(obj == null) {
+			throw new ObjectNotFoundException("Objeto não encontrado ! Id: " + id 
+					+ ", Tipo: " + Categoria.class.getName());
+			
+		}
 		return obj;
 	}
 }
 
-/* Versão SpringBoot 2. para frente...
- * 
- * Metódos de buscas.
- * 
- * public Categoria find(IntegerID) {
- * 
- * 		Optional <Categoria> obj = repo.findById(id);
- * 		return obj.orElse(null);
- * }
- * 
- * No exemplo está buscando por ID, mas pode ser usado por outros atributos.
- * 
- * -------------------*-------------------------*---------------------------*--------
- * 
- * Operação de instanciação
- * 
- * categoriaRepository.saveAll(Arrays.asList(categoria1, categoria2);
- * 
- * Sempre que usarmos um Repositorio para salvar uma lista de dados usamos o saveAll.
- * 
- * -------------------*-------------------------*---------------------------*--------
- * */
- 
