@@ -19,7 +19,9 @@ public class CategoriaService {
 	}
 }
 
-/* Metódos de buscas do springboot da versão 2 para frente.
+/* Versão SpringBoot 2. para frente...
+ * 
+ * Metódos de buscas.
  * 
  * public Categoria find(IntegerID) {
  * 
@@ -28,5 +30,15 @@ public class CategoriaService {
  * }
  * 
  * No exemplo está buscando por ID, mas pode ser usado por outros atributos.
+ * 
+ * -------------------*-------------------------*---------------------------*--------
+ * 
+ * Operação de instanciação
+ * 
+ * categoriaRepository.saveAll(Arrays.asList(categoria1, categoria2);
+ * 
+ * Sempre que usarmos um Repositorio para salvar uma lista de dados usamos o saveAll.
+ * 
+ * -------------------*-------------------------*---------------------------*--------
  * */
  
