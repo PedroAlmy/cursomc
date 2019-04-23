@@ -23,11 +23,7 @@ public class CategoriaResource {
 		
 		Categoria obj = service.buscarPeloId(id);
 		return ResponseEntity.ok().body(obj);
-		
-	
-		
-	}
-	
 
+	}
 }
 
